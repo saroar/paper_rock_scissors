@@ -13,6 +13,21 @@ def display_winning_msg(winning_msg)
   end
 end
 
+def display_player_pick(pickup_player_msg)
+  case pickup_player_msg
+  when 'p' then puts "Player pick Paper"
+  when 'r' then puts "Player pick Rock"
+  when 'p' then puts "Player pick Scissors"
+  end
+end
+
+def display_computer_pick(pickup_computer_msg)
+  case pickup_computer_msg
+  when 'p' then puts "Computer pick Paper"
+  when 'r' then puts "Computer pick Rock"
+  when 'p' then puts "Computer pick Scissors"
+  end
+end
 
 loop do 
   begin
@@ -30,13 +45,15 @@ loop do
       player_choice == 'r' && computer_choice == 's' || 
       player_choice == 's' && computer_choice == 'p'
       display_winning_msg(player_choice)
+      display_player_pick(player_choice)
       puts "Player win!"
   else 
       display_winning_msg(computer_choice)
+      display_computer_pick(computer_choice)
       puts "Computer win!"
   end
     puts "Do you like to play again sir ?"
-  break if gets.chomp.downcase != 'y'
+  break unless gets.chomp.downcase == 'y'
     
 end
 
