@@ -6,14 +6,10 @@ CHOICES = { 'p' => 'Paper', 'r' => 'Rock', 's' => 'Scissors' }
 puts "Welcome to Paper, Rock, Scissors game!"
 
 def display_winning_msg(winning_msg)
-  
   case winning_msg
-  when 'p'
-    puts "Papers warps Rock!"
-  when 'r'
-    puts 'Rock mash scissors'
-  when 's'
-    puts "Scissors cuts papers"
+  when 'p' then puts "Papers warps Rock!"
+  when 'r' then puts 'Rock mash scissors'
+  when 's' then puts "Scissors cuts papers"
   end
 end
 
@@ -27,18 +23,20 @@ loop do
     # computer choice
     computer_choice = CHOICES.keys.sample
     
-    if player_choice == computer_choice
+  if player_choice == computer_choice
       puts "Game Tie!"
-    elsif 
-      (player_choice == 'p' && computer_choice == 'r') || (player_choice == 'r' && computer_choice == 's') || (player_choice == 's' && computer_choice == 'p')
+  elsif 
+      player_choice == 'p' && computer_choice == 'r' || 
+      player_choice == 'r' && computer_choice == 's' || 
+      player_choice == 's' && computer_choice == 'p'
       display_winning_msg(player_choice)
-      puts "You win!"
-    else 
+      puts "Player win!"
+  else 
       display_winning_msg(computer_choice)
       puts "Computer win!"
-    end
+  end
     puts "Do you like to play again sir ?"
-    break if gets.chomp.downcase != 'y'
+  break if gets.chomp.downcase != 'y'
     
 end
 
